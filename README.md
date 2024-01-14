@@ -76,5 +76,11 @@ python -m flask run --host=0.0.0.0 --port=5000
         Implementation of encryption for messages within the system.
         Ensuring secure transmission and storage of sensitive information.
 
+## Documentation
+
+[CMSE-353 Term Project STLS](https://github.com/kacrhub/Secure-Teams-System/files/13932235/CMSE-353.Term.Project.STLS.Gr.4.docx)
+
+
+
 
 
