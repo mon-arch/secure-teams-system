@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>System Administration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ background_image_path }}');
+            background-size: 1920px 1080px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h2 {
+            color: #444791;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        select {
+            margin-bottom: 30px;
+        }
+        input[type="submit"] {
+            background-color: #464775;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #444791;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            position: relative;
+        }
+        form[action^="/delete_user"] {
+            display: inline;
+            margin-left: 10px;
+        }
+        .user-info {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .user-info li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .user-info p {
+            margin: 5px 0;
+        }
+        .delete-form {
+            display: inline;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>System Administration</h2>
+        <!-- Kullanıcı ekleme formu -->
+        <form action="/add_user" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <select id="role" name="role">
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+            <input type="submit" value="Add User">
+        </form>
+        <hr>
+        <h3>Users:</h3>
+        <!-- Kullanıcı listesi -->
+        <ul class="user-info">
+            {% for user in users %}
+            <li>
+                <p>Username: {{ user.username }}</p>
+                <p>Role: {{ user.role }}</p>
+                <p>Password: {{ user.password }}</p>
+                <!-- Kullanıcı silme formu -->
+                <form action="/delete_user/{{ user._id }}" method="POST" class="delete-form">
+                    <input type="submit" value="Delete User">
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Verilerin yeniden şifrelenmesi butonu -->
+        <h3>Re-encrypt Data:</h3>
+        <form action="/admin">
+            <input type="submit" value="Re-encrypt Data">
+        </form>
+
+        <!-- Yeni anahtarla verilerin yeniden şifrelenmesi butonu -->
+        <h3>Re-encrypt Data with New Key:</h3>
+        <form action="/admin">
+            <input type="submit" value="Re-encrypt Data with New Key">
+        </form>
+    </div>
+</body>
+</html>

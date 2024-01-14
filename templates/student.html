@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('{{ background_image_path }}');
+            background-size: cover;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-align: center;
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 800px;
+        }
+        li {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        li:hover {
+            transform: translateY(-5px);
+        }
+        li a {
+            display: block;
+            text-decoration: none;
+            color: #3366cc;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        li a:hover {
+            background-color: #d9e4f7;
+            color: #1a4275;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            color: #3366cc;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #3366cc;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #1a4275;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+
+    <h2>Your Groups:</h2>
+    <ul>
+        {% for group in student_groups %}
+            <li>
+                    <strong>{{ group['group_name'] }}</strong>
+                    <ul>
+                        {% for subgroup in group['subgroups'] %}
+                            <li><a href="{{ url_for('subgroup_chat', group_id=group['_id'], subgroup_name=subgroup['group_name']) }}">{{ subgroup['group_name'] }}</a></li>
+                        {% endfor %}
+                    </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Create Channel</h2>
+    <form method="post" action="/student">
+        <label for="parent_group_name">Parent Group ID:</label>
+        <input type="text" id="parent_group_name" name="parent_group_name" placeholder="Parent Group ID">
+        <label for="subgroup_name">Channel Name:</label>
+        <input type="text" id="subgroup_name" name="subgroup_name" placeholder="Channel Name">
+        <input type="submit" value="Create Channel">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Page - Microsoft Teams Style</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('{{ background_image_path }}');
+            background-size: cover;
+
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #232C47;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #232C47;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="submit"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #464775;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome Teacher</h1>
+
+        <form class="form-group" method="post" action="/teacher/create_group">
+            <label for="group_name">Group Name:</label>
+            <input type="text" id="group_name" name="group_name">
+            <input type="submit" value="Create Group">
+        </form>
+
+        <form class="form-group" method="post" action="/teacher/add_student">
+            <label for="group_id">Group ID:</label>
+            <input type="text" id="group_id" name="group_id" placeholder="Group ID">
+            <label for="student_username">Student Username:</label>
+            <input type="text" id="student_username" name="student_username">
+            <input type="submit" value="Add Student">
+        </form>
+
+        <form class="form-group" method="post" action="/teacher/add_teacher">
+            <label for="group_id">Group ID:</label>
+            <input type="text" id="group_id" name="group_id" placeholder="Group ID">
+            <label for="teacher_username">Teacher Username:</label>
+            <input type="text" id="teacher_username" name="teacher_username">
+            <input type="submit" value="Add Teacher">
+        </form>
+
+        <form class="form-group" method="post" action="/teacher/add_subgroup">
+            <label for="parent_group_name">Parent Group ID:</label>
+            <input type="text" id="parent_group_name" name="parent_group_name" placeholder="Parent Group ID">
+            <label for="subgroup_name">Subgroup Name:</label>
+            <input type="text" id="subgroup_name" name="subgroup_name" placeholder="Channel Name">
+            <input type="submit" value="Create Channel">
+        </form>
+    </div>
+</body>
+</html>

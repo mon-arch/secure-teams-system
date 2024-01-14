@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Arka plan rengi */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('{{ background_image_path }}');
+            background-size: cover;
+        }
+        h1 {
+            color: #444791; /* Başlık rengi */
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            background-color: #444791; /* Buton arka plan rengi */
+            color: #fff; /* Buton metin rengi */
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #333; /* Buton hover rengi */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat</h1>
+    <div>
+        {% if username %}
+            <p>User: {{ username }}</p>
+        {% endif %}
+    </div>
+
+    <form method="POST">
+        <input type="text" name="username" value="{{ username }}" style="display: none;"> <!-- Hidden input field for username -->
+        <textarea name="message" cols="30" rows="5" placeholder="Text your messages..."></textarea><br>
+        <input type="submit" value="Gönder">
+    </form>
+
+    <div>
+        <h2>Messages</h2>
+        <ul>
+            {% for message in messages %}
+                <li>{{ message.sender }}: {{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
