@@ -58,7 +58,7 @@ python -m flask run --host=0.0.0.0 --port=5000
         Integration of database operations.
         System security measures on the back end.
 
-- #### Front-end ([@Kaan](https://www.github.com/kacrhub) and [@Mehmet Ali](https://www.github.com/):
+- #### Front-end ([@Kaan](https://www.github.com/kacrhub) and [@Mehmet Ali](https://www.github.com/)):
 
         Design and implementation of the user interface.
         Integration of front-end components with the back end.
