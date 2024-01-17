@@ -46,19 +46,19 @@ python -m flask run --host=0.0.0.0 --port=5000
 ## Authors
 
 
-- #### Database Owner and Controller ([@Furkan](https://www.github.com/octokatherine)):
+- #### Database Owner and Controller ([@Furkan](https://www.github.com/furkanalcikaya)):
 
         Design and implementation of the database architecture.
         Ensuring data integrity and security.
         Database management and optimization.
 
-- #### Back-end ([@Furkan](https://www.github.com/octokatherine) and [@Kaan](https://www.github.com/kacrhub)):
+- #### Back-end ([@Furkan](https://www.github.com/furkanalcikaya) and [@Kaan](https://www.github.com/kacrhub)):
 
         Implementation of the system's back-end logic and functionality.
         Integration of database operations.
         System security measures on the back end.
 
-- #### Front-end ([@Kaan](https://www.github.com/kacrhub) and Mehmet Ali:
+- #### Front-end ([@Kaan](https://www.github.com/kacrhub) and [@Mehmet Ali](https://www.github.com/):
 
         Design and implementation of the user interface.
         Integration of front-end components with the back end.
@@ -70,17 +70,11 @@ python -m flask run --host=0.0.0.0 --port=5000
         Identification and reporting of bugs or issues.
         Collaborating with developers to ensure software quality.
 
-- #### Encryption at Password and Messages (Mehmet Ali):
+- #### Encryption at Password and Messages ([@Mehmet Ali](https://www.github.com/)):
 
         Implementation of encryption algorithms for passwords.
         Implementation of encryption for messages within the system.
         Ensuring secure transmission and storage of sensitive information.
-
-## Documentation
-
-[CMSE-353 Term Project STLS](https://github.com/kacrhub/Secure-Teams-System/files/13932235/CMSE-353.Term.Project.STLS.Gr.4.docx)
-
-
 
 
 
