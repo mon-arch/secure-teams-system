@@ -52,13 +52,13 @@ python -m flask run --host=0.0.0.0 --port=5000
         Ensuring data integrity and security.
         Database management and optimization.
 
-- #### Back-end ([@Furkan](https://www.github.com/furkanalcikaya) and [@Kaan](https://www.github.com/kacrhub)):
+- #### Back-end ([@Furkan](https://www.github.com/furkanalcikaya) and [@Kaan](https://www.github.com/mon-arch)):
 
         Implementation of the system's back-end logic and functionality.
         Integration of database operations.
         System security measures on the back end.
 
-- #### Front-end ([@Kaan](https://www.github.com/kacrhub) and [@Mehmet Ali](https://www.github.com/)):
+- #### Front-end ([@Kaan](https://www.github.com/mon-arch) and [@Mehmet Ali](https://www.github.com/)):
 
         Design and implementation of the user interface.
         Integration of front-end components with the back end.
