@@ -64,7 +64,7 @@ python -m flask run --host=0.0.0.0 --port=5000
         Integration of front-end components with the back end.
         User experience optimization.
 
-- #### Tester ([@Kaan](https://www.github.com/kacrhub)):
+- #### Tester ([@Kaan](https://www.github.com/mon-arch)):
 
         Development and execution of test cases.
         Identification and reporting of bugs or issues.
